@@ -10,7 +10,7 @@ int less(char *a, char *b);
 void exch(char *arr[], int a, int b);
 void sort(char *arr[], int size);
 void merge(char *arr[], char *aux[], int lo, int mid, int hi);
-void merge_sort(char *arr[], char *aux, int lo, int hi);
+void merge_sort(char *arr[], char *aux[], int lo, int hi);
 
 int main(int argc, char *argv[]) {
     int algo, i;
@@ -97,7 +97,7 @@ void merge(char *arr[], char *aux[], int lo, int mid, int hi) {
 void sort(char *arr[], int size) {
     //Allocate memory with the same size as arr[]
     char **aux = malloc(size * sizeof(char *));
-    if (aux == null) {
+    if (aux == NULL) {
         perror("Error allocating auxiliary memory");
         return;
     }

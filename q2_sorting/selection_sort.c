@@ -72,7 +72,7 @@ void sort(char *arr[], int size) {
     for (i = 0; i < size - 1; i++) {
         min = i;
         for (j = i + 1; j < size; j++) {
-            if (strcasecmp(arr[j], arr[min]) == -1) {
+            if (strcasecmp(arr[j], arr[min]) < 0) {
                 min = j;
             }
         }

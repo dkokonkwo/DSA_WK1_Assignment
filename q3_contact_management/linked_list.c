@@ -18,7 +18,7 @@ struct Node* createNode(char *name, char *num) {
 }
 
 // Function to convert an array to a linked list
-struct Node* arrayToLinkedList(char *name[], char *num, int size) {
+struct Node* arrayToLinkedList(char *name[], char *num[], int size) {
     if (size == 0) return NULL;
 
     // Create the head of the linked list
@@ -53,7 +53,7 @@ struct Node* addContact(struct Node* head, char *name, char *num) {
     struct Node* previous = NULL;
     while (current != NULL && strcasecmp(current->name, newNode->name) < 0) {
         previous = current;
-        currrent = current->next;
+        current = current->next;
     }
     previous->next = newNode;
     newNode->next = current;
@@ -64,7 +64,7 @@ struct Node* addContact(struct Node* head, char *name, char *num) {
 void searchContact(struct Node* head, char *name) {
     //linear search
     struct Node* current = head;
-    int count = 1;
+    int count = 0;
     while (current != NULL && strcasecmp(current->name, name) <= 0) {
         if (strcasecmp(current->name, name) == 0) {
             printf("%s was found at node %d\n", name, count);
@@ -85,7 +85,7 @@ struct Node* deleteContact(struct Node* head, char *name) {
         free(current->name);
         free(current->num);
         free(current);
-        printf("contact deleted");
+        printf("contact deleted\n");
         return head;
     }
     struct Node* previous = NULL;
@@ -95,7 +95,7 @@ struct Node* deleteContact(struct Node* head, char *name) {
             free(current->name);
             free(current->num);
             free(current);
-            printf("Contact deleted");
+            printf("Contact deleted\n");
             return head;
         }
         previous = current;

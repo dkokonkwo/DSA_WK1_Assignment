@@ -6,32 +6,55 @@
 
 int main() {
     // Arrays to be converted to linked list
-    int *names[8] = {3, 2, 7, 5, 9, 6, 4, 8};
-    char *num[8] = {};
+    char *names[8] = {
+    "Emma Johnson",
+    "Liam Smith",
+    "Olivia Brown",
+    "Noah Davis",
+    "Jon Jones",
+    "William Martinez",
+    "Sophia Anderson",
+    "James Taylor",
+        };
+    char *num[8] = {
+    "123-456-7890",
+    "234-567-8901",
+    "345-678-9012",
+    "456-789-0123",
+    "567-890-1234",
+    "678-901-2345",
+    "789-012-3456",
+    "890-123-4567",
+        };
     
-    char *new_contact[2] = {"Jack Reacher", "23436078956"};
+    char *new_contact[2] = {"Jack Reacher", "234-360-7895"};
 
     // Convert array to linked list
     struct Node* head = arrayToLinkedList(names, num, 8);
 
     //Print the linked list
+    printf("Original linked list\n");
     printLinkedList(head);
 
-    addContact(head, new_contact[0], new_contact[1]);
+    head = addContact(head, new_contact[0], new_contact[1]);
 
     // Print the linked list
+    printf("Linked list after adding contact\n");
     printLinkedList(head);
 
     // name in linked list
-    searchContact("Jon Jones");
+    printf("searchiing for contact in list\n");
+    searchContact(head, "Jon Jones");
 
     //name not in linked list
-    searchContact("Emma Watson");
+    printf("Searching for another contact\n");
+    searchContact(head, "Emma Watson");
 
     //delete contact
-    deleteContact(new_contact[0]);
+    head = deleteContact(head, new_contact[0]);
 
     //Print linked list
+    printf("Printing updated linked list\n");
     printLinkedList(head);
 
     return(0);
